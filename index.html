@@ -295,6 +295,17 @@ section{scroll-margin-top:64px}
 .count{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap}
 .count .n{font-size:44px;font-weight:800;line-height:1;color:var(--c1-ink);font-family:var(--font-head)}
 .intro{margin:10px 0 0}
+.clocks{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:14px 0 0}
+.clock{margin:0;padding:12px 8px;text-align:center}
+.clock b{display:block;font-size:30px;line-height:1.2;color:var(--c1-ink);font-family:var(--font-head);font-variant-numeric:tabular-nums}
+.clock span{display:block;font-size:13px;color:var(--muted)}
+.fx{margin:10px 0 0}
+.fx-row{display:grid;grid-template-columns:92px 1fr;gap:10px;align-items:center;margin-top:8px}
+.fx-row label{font-weight:700;font-size:15.5px}
+.fx-row label small{font-weight:400;color:var(--muted);font-size:12px}
+.fx-row input{width:100%;min-width:0;font:inherit;font-size:20px;font-weight:700;padding:8px 12px;min-height:46px;border:1.5px solid var(--line);border-radius:var(--radius-s);background:var(--bg);color:var(--ink);text-align:right;font-variant-numeric:tabular-nums}
+.fx-row input:focus{outline:2px solid var(--c3);outline-offset:1px}
+.fx-note{font-size:12.5px;color:var(--muted);margin:10px 0 0}
 
 h2{font-size:22px;margin:30px 0 10px;line-height:1.3}
 h3{font-size:17px;margin:0 0 4px}
@@ -418,6 +429,14 @@ const UNESCO_PAMUKKALE = ["UNESCO 世界遺產中心：Hierapolis-Pamukkale", "h
 const UNESCO_EPHESUS = ["UNESCO 世界遺產中心：Ephesus", "https://whc.unesco.org/en/list/1018"];
 const UNESCO_ISTANBUL = ["UNESCO 世界遺產中心：Historic Areas of Istanbul", "https://whc.unesco.org/en/list/356"];
 
+const KTB_ANITKABIR = ["土耳其文化觀光部：Anıtkabir (Atatürk's Mausoleum)", "https://www.ktb.gov.tr/EN-103960/ankara---anitkabir-ataturks-mausoleum.html"];
+const UNESCO_TUZ = ["UNESCO 世界遺產預備名單：Lake Tuz Special Environmental Protection Area", "https://whc.unesco.org/en/tentativelists/5824/"];
+const UNESCO_HAN = ["UNESCO 世界遺產預備名單：Seljuk Caravanserais on the route from Denizli to Dogubeyazit", "https://whc.unesco.org/en/tentativelists/1403/"];
+const UNESCO_SEMA = ["UNESCO 無形文化遺產：Mevlevi Sema ceremony", "https://ich.unesco.org/en/RL/mevlevi-sema-ceremony-00100"];
+const GOTURKIYE_SIRINCE = ["GoTürkiye（土耳其官方旅遊網站）：Şirince", "https://goturkiye.com/branding/press-releases/sirince-the-green-oasis-in-turkiyes-aegean-coasts-is-now-on-the-2023-worlds-best-tourism-villages-list"];
+const GOTURKIYE_CISTERN = ["GoTürkiye（土耳其官方旅遊網站）：Basilica Cistern", "https://goturkiye.com/istanbul/basilica-cistern"];
+const VISIT_SPICE = ["Visit Istanbul（伊斯坦堡市政府觀光網站）：Spice Bazaar", "https://visit.istanbul/spice-bazaar"];
+
 const TRIP = {
   key: "turkey-2026-11",       // 打勾清單存在手機裡用的名字，每個旅程要不一樣
   title: "土耳其 10 日・熱氣球與玫瑰谷",
@@ -456,7 +475,12 @@ const TRIP = {
       items:[
         { k:"d1a", time:"08:00", cat:"move", title:"桃園機場第二航廈集合", desc:"中華航空（代理）團體櫃檯。由領隊統一辦登機手續，行李要本人帶護照和登機證託運，記得拿行李收據。", must:true, map:"桃園國際機場第二航廈" },
         { k:"d1b", time:"11:00", cat:"move", title:"TK125 起飛", desc:"早餐、午餐都在機上。", tags:["flight"] },
-        { k:"d1c", time:"19:10", cat:"move", title:"抵達伊斯坦堡", desc:"當地時間。下機前檢查座位四周和置物袋，東西掉了要到 Lost & Found 填單。", tags:["flight"] },
+        { k:"d1c", time:"19:10", cat:"move", title:"抵達伊斯坦堡", desc:"當地時間。下機前檢查座位四周和置物袋，東西掉了要到 Lost & Found 填單。", tags:["flight"],
+          story:{ lead:"先認識這趟旅行的起點和終點：當過兩個帝國首都的城市",
+            body:["伊斯坦堡位在博斯普魯斯半島，夾在巴爾幹和安那托利亞、黑海和地中海之間。聯合國教科文組織說，兩千多年來它一直和政治、宗教、藝術史上的大事連在一起。","它先後是東羅馬帝國和鄂圖曼帝國的首都。舊城所在的半島，北邊是天然港灣金角灣，東邊是博斯普魯斯海峽，南邊是馬爾馬拉海，三面環水。","今晚只是過夜，真正的伊斯坦堡要等到 Day 8、Day 9 才看：到時候你會站在拜占庭的教堂和鄂圖曼的清真寺中間，那條天際線就是這座城市被列為世界遺產的原因。"],
+            see:["從機場進市區的路上，留意這座城市有多大","Day 8 再回來看舊城區的宮殿、教堂和清真寺"],
+            fact:"舊城半島外圍的城牆，最早是狄奧多西皇帝在 5 世紀初蓋的。",
+            src:[UNESCO_ISTANBUL] } },
         { k:"d1d", time:"🍽️", cat:"food", title:"晚餐：土耳其傳統料理", desc:"" },
         { k:"d1e", time:"🛏️", cat:"stay", title:"入住 THE G HOTELS – ISTANBUL", desc:"放鬆休息，明天開始拉車往安卡拉。", map:"The G Hotels Istanbul Güneşli" },
       ], tip:"鋰電池和行動電源要放隨身包。大行李在運送途中若有損壞，手冊寫明無法賠償，貴重和易碎物品請隨身帶。" },
@@ -465,7 +489,13 @@ const TRIP = {
       items:[
         { k:"d2a", time:"🚌", cat:"move", title:"伊斯坦堡 → 安卡拉", desc:"約 449 公里、5 小時 20 分。", tags:["bus"] },
         { k:"d2b", time:"🍽️", cat:"food", title:"午餐：土耳其烤肉料理", desc:"" },
-        { k:"d2c", time:"📍", cat:"sight", title:"凱末爾紀念館（入內參觀）", desc:"土耳其國父凱末爾的陵寢，建築融合古西臺神殿、希臘羅馬、拜占庭和回教風格。展示廳有他的史蹟和遺物，還有蔣中正簽名的照片。", must:true, map:"Anıtkabir" },
+        { k:"d2c", time:"📍", cat:"sight", title:"凱末爾紀念館（入內參觀）", desc:"土耳其國父凱末爾的陵寢，建築融合古西臺神殿、希臘羅馬、拜占庭和回教風格。展示廳有他的史蹟和遺物，還有蔣中正簽名的照片。", must:true, map:"Anıtkabir",
+          story:{ lead:"土耳其人用九年時間，為國父蓋的一座山丘上的陵墓",
+            body:["凱末爾（阿塔圖克）是土耳其獨立戰爭的領袖，也是土耳其共和國的創建者，1938 年 11 月 10 日過世，享年 57 歲。為他蓋一座配得上的陵墓，是當時全國共同的心願。","陵墓所在的山丘原本叫「觀測丘」，因為上面有一座天文台；山上還有古代弗里吉亞人的墳塚，動工前先做了考古發掘，出土文物現在放在安那托利亞文明博物館。","工程在 1944 年 10 月 9 日放下第一塊基石，分四個階段進行，1953 年 9 月 1 日完工，前後九年。整個園區約 75 萬平方公尺，分成「和平公園」和「紀念區」兩部分。"],
+            see:["獅子大道：通往陵墓的長步道，兩旁是石獅","儀式廣場：四周是柱廊的大廣場","陵墓本體和榮譽廳：重達 40 噸的整塊石棺石","建築上的塞爾柱和鄂圖曼紋飾，例如鋸齒狀的石雕邊框"],
+            how:"這是莊嚴的國家紀念場所，參觀時保持安靜、服裝整齊，聽從現場人員指示。",
+            fact:"和平公園的名字來自凱末爾的名言「國內和平，世界和平」，園裡有來自世界各國的 48,500 棵樹木和植物，共 104 個品種。",
+            src:[KTB_ANITKABIR] } },
         { k:"d2d", time:"📍", cat:"sight", title:"安卡拉城堡（下車參觀）", desc:"羅馬、拜占庭、塞爾柱都修建過的古城牆，裡面是曲折街巷和手工藝店，登上城牆可以俯瞰安卡拉市景。", map:"Ankara Kalesi" },
         { k:"d2e", time:"🍽️", cat:"food", title:"晚餐：飯店內", desc:"" },
         { k:"d2f", time:"🛏️", cat:"stay", title:"入住 RADISSON BLU CANKAYA", desc:"", map:"Radisson Blu Hotel Ankara Çukurambar" },
@@ -474,7 +504,13 @@ const TRIP = {
     { date:"2026-11-16", label:"鹽湖", title:"Day 3・鹽湖與地下城", route:"安卡拉 → 鹽湖 → 卡帕多奇亞", move:"122 公里（1 小時 30 分）＋ 257 公里（2 小時 50 分）", stay:"YUNAK EVLERI CAVE（洞穴飯店）",
       items:[
         { k:"d3a", time:"🚌", cat:"move", title:"安卡拉 → 鹽湖", desc:"約 122 公里、1 小時 30 分。", tags:["bus"] },
-        { k:"d3b", time:"📍", cat:"sight", title:"鹽湖（下車參觀）", desc:"土耳其第二大湖，在安卡拉東南方約 150 公里。古代這裡是海底，雨水和雪水把岩層裡的鹽份沖刷出來；湖面大小跟著季節變化。", must:true, map:"Tuz Gölü" },
+        { k:"d3b", time:"📍", cat:"sight", title:"鹽湖（下車參觀）", desc:"土耳其第二大湖，在安卡拉東南方約 150 公里。古代這裡是海底，雨水和雪水把岩層裡的鹽份沖刷出來；湖面大小跟著季節變化。", must:true, map:"Tuz Gölü",
+          story:{ lead:"水深不到半公尺、鹽度卻高達三成的大湖",
+            body:["鹽湖（Tuz Gölü）是土耳其第二大湖，僅次於凡湖，位在安卡拉、孔亞、阿克薩賴三省交界、海拔 905 公尺的內陸盆地裡。這裡是全國降雨最少的地區之一，幾乎沒有河流注入，湖水主要靠地下水補給。","它平均水深不到 0.5 公尺。春天湖面最大，可以到 16 萬多公頃；夏天強烈蒸發，湖面會結出大約 30 公分厚的鹽層。","湖水的含鹽比例高達 32.4%，是世界上最鹹的湖之一。土耳其在 2013 年把它列入世界遺產預備名單。"],
+            see:["一望無際的白色鹽灘和遠方的地平線","腳下的鹽結晶","湖面有水時的天空倒影（看季節和當天狀況）"],
+            how:"11 月湖面有沒有水、能走多遠，要看當天狀況，聽領隊說明。鹽會沾在鞋子和褲腳上，上車前拍一拍。",
+            fact:"土耳其使用的鹽，有七成產自這座湖。",
+            src:[UNESCO_TUZ] } },
         { k:"d3c", time:"🍽️", cat:"food", title:"午餐：土耳其傳統風味餐", desc:"" },
         { k:"d3d", time:"🚌", cat:"move", title:"鹽湖 → 卡帕多奇亞", desc:"約 257 公里、2 小時 50 分。", tags:["bus"] },
         { k:"d3e", time:"📍", cat:"sight", title:"凱馬克地下城（入內參觀）", desc:"卡帕多奇亞人把養牲畜、釀酒、生活都搬進地下的城市。", must:true, map:"Kaymaklı Underground City",
@@ -490,7 +526,12 @@ const TRIP = {
 
     { date:"2026-11-17", label:"熱氣球", title:"Day 4・熱氣球與玫瑰谷", route:"卡帕多奇亞一整天", move:"區內短程移動", stay:"YUNAK EVLERI CAVE（洞穴飯店）",
       items:[
-        { k:"d4a", time:"🎈", cat:"sight", title:"熱氣球之旅", desc:"從飯店出發到回飯店約 120–150 分鐘，結束後會開香檳、發證書。卡帕多奇亞曾被《國家地理》雜誌選為十大地球美景之一。出發時間等領隊前一晚通知。", must:true },
+        { k:"d4a", time:"🎈", cat:"sight", title:"熱氣球之旅", desc:"從飯店出發到回飯店約 120–150 分鐘，結束後會開香檳、發證書。卡帕多奇亞曾被《國家地理》雜誌選為十大地球美景之一。出發時間等領隊前一晚通知。", must:true,
+          story:{ lead:"從空中看，才看得懂卡帕多奇亞是怎麼長出來的",
+            body:["卡帕多奇亞位在安那托利亞高原中部，是一整片被侵蝕雕刻出來的火山地景。世界遺產的範圍涵蓋內夫謝希爾、于爾居普、阿瓦諾斯幾個城鎮之間的區域，你們住的洞穴飯店就在于爾居普。","這片地景的南邊和東邊是成排的死火山，一端是 3,916 公尺的埃爾吉耶斯山，另一端是 3,253 公尺的哈桑山。火山留下的岩層被風雨侵蝕了很久很久，變成一道道山脊、谷地和尖塔狀的岩柱。","在地面上只能一個谷一個谷地看，升空之後才會看到它們是連在一起的。行前手冊提到，卡帕多奇亞是地球上最適合搭熱氣球的兩個地方之一。"],
+            see:["腳下連成一片的山脊、谷地和「精靈煙囪」岩柱","岩壁上人工開鑿的洞窟和小室","遠方的火山輪廓","其他熱氣球一起升空的畫面"],
+            how:"清晨高空很冷，照冬天最冷的狀況穿，手套和帽子都帶著。集合時間等領隊前一晚通知；能不能飛要看當天天氣。",
+            src:[UNESCO_CAPPADOCIA] } },
         { k:"d4b", time:"📍", cat:"sight", title:"哥樂美露天博物館（入內參觀）", desc:"岩洞裡藏著壁畫和聖像，是這一帶奇特地貌的精華。", must:true, map:"Göreme Open Air Museum",
           story:{ lead:"鑿在岩石裡的教堂，牆上是將近千年前的彩色壁畫",
             body:["聯合國教科文組織說明，在 725–842 年的「聖像破壞時期」，這裡的教堂裝飾很少，多半只有十字架。","842 年之後，卡帕多奇亞開鑿了許多岩窟教堂，牆上畫滿色彩鮮豔的人物壁畫，成為拜占庭藝術的重要見證。","哥樂美谷裡的教堂包括 10 世紀的托卡利教堂（Tokalı Kilise）、11 世紀的聖芭芭拉教堂，以及 12 世紀末到 13 世紀初的蘋果教堂（Elmalı Kilise）和黑暗教堂（Karanlık Kilise）。"],
@@ -506,7 +547,12 @@ const TRIP = {
             src:[UNESCO_CAPPADOCIA] } },
         { k:"d4e", time:"📍", cat:"sight", title:"駱駝岩、獵人谷（下車參觀）", desc:"駱駝岩 Camel Rock 和獵人谷 Hunting Valley，下車拍照。", map:"Camel Rock Cappadocia" },
         { k:"d4f", time:"🛍️", cat:"shop", title:"地毯展示中心（入內參觀）", desc:"看土耳其各地區的手工地毯，圖紋、染料、材質各有不同。手冊提醒：手工地毯獨一無二，先檢查有沒有瑕疵，也要考慮帶回台灣的運送風險，旅行社不提供退貨退費。" },
-        { k:"d4g", time:"🌅", cat:"sight", title:"玫瑰谷（入內參觀）", desc:"以粉紅色岩壁和夕陽聞名，山谷裡有奇岩和古老的洞穴教堂。", must:true, map:"Rose Valley Cappadocia" },
+        { k:"d4g", time:"🌅", cat:"sight", title:"玫瑰谷（入內參觀）", desc:"以粉紅色岩壁和夕陽聞名，山谷裡有奇岩和古老的洞穴教堂。", must:true, map:"Rose Valley Cappadocia",
+          story:{ lead:"白天看過岩洞和奇岩，傍晚到這裡看它們變成粉紅色",
+            body:["玫瑰谷是卡帕多奇亞眾多谷地之一。聯合國教科文組織形容這一帶的地景「戲劇性地展現了侵蝕的力量」，而且自然地貌和人留下的痕跡是交織在一起的。","行前手冊介紹，玫瑰谷以粉紅色的岩壁和夕陽聞名，蜿蜒的山谷裡散布著奇岩和古老的洞穴教堂。這些洞穴教堂，和你今天在哥樂美露天博物館看到的是同一個傳統：從 4 世紀開始，就有修行的人住進這裡的岩石裡。"],
+            see:["夕陽下顏色不斷變化的粉紅岩壁","谷地裡的奇岩和岩壁上的洞穴","回頭看整片卡帕多奇亞的谷地"],
+            how:"谷地是泥土和碎石路，穿防滑的鞋；太陽下山後降溫很快，外套帶著。",
+            src:[UNESCO_CAPPADOCIA] } },
         { k:"d4h", time:"🚙", cat:"sight", title:"自費：四輪傳動體驗 Jeep Safari", desc:"每人美金 120 元，全程約 90–100 分鐘（從飯店出發到回飯店），停 3–4 個拍照景點。要不要參加、有沒有成行以領隊說明為準。" },
         { k:"d4i", time:"🍽️", cat:"food", title:"晚餐：飯店內", desc:"" },
       ], tip:"熱氣球如果因為天候沒有飛，團體回台後每人退台幣 6,000 元。玫瑰谷和奇岩區是泥土和碎石路，穿防滑好走的鞋。" },
@@ -514,8 +560,19 @@ const TRIP = {
     { date:"2026-11-18", label:"孔亞", title:"Day 5・走古絲路往西", route:"卡帕多奇亞 → 孔亞 → 巴穆卡雷（棉堡）", move:"275 公里（4 小時 10 分）＋ 406 公里（5 小時 40 分）", stay:"PAM THERMAL",
       items:[
         { k:"d5a", time:"🚌", cat:"move", title:"卡帕多奇亞 → 孔亞", desc:"約 275 公里、4 小時 10 分。這條路是古絲路的一段。", tags:["bus"] },
-        { k:"d5b", time:"📍", cat:"sight", title:"古驛站（入內參觀）", desc:"13 世紀這裡是塞爾柱土耳其的領土，沿途盜匪多，蘇丹為了保護商旅，每 40 公里蓋一座驛站讓駱駝商隊休息，那也是駱駝一天能走的距離。", must:true },
-        { k:"d5c", time:"📍", cat:"sight", title:"孔亞", desc:"土耳其最古老的城市之一，12–13 世紀是塞爾柱的首都，也是傳統的宗教文化中心。詩人魯米在這裡創立了以旋轉舞祈禱聞名的蘇菲教團。", map:"Konya" },
+        { k:"d5b", time:"📍", cat:"sight", title:"古驛站（入內參觀）", desc:"13 世紀這裡是塞爾柱土耳其的領土，沿途盜匪多，蘇丹為了保護商旅，每 40 公里蓋一座驛站讓駱駝商隊休息，那也是駱駝一天能走的距離。", must:true,
+          story:{ lead:"八百年前的「高速公路休息站」，蓋給駱駝商隊用",
+            body:["驛站的起源可以追溯到中亞突厥民族的遊牧生活：最早只是提供旅人食物和睡覺地方的簡單宿舍，後來越蓋越完整，到了塞爾柱人在安那托利亞蓋的大型驛站，發展到最高峰。","它能讓整支商隊的人、牲口和貨物都住進來，供應吃喝，還能處理維修、治療和照料。驛站沿著貿易路線一座一座排列，間隔就是商隊一天能走的距離。行前手冊說大約是每 40 公里一座。","從西部的代尼茲利一路往東，這條橫貫安那托利亞的路線上大約有 40 座驛站，其中約 10 座保存得很好。土耳其在 2000 年把這些塞爾柱驛站列入世界遺產預備名單。"],
+            see:["厚實的石牆和大門上的石雕","中間的庭院：想像駱駝和貨物停在這裡","給人和牲口過夜的空間"],
+            how:"行前手冊沒有寫是哪一座驛站，到現場聽導遊介紹它的名字和年代。",
+            fact:"今天從卡帕多奇亞到孔亞這段路，就是古絲路的一段。",
+            src:[UNESCO_HAN] } },
+        { k:"d5c", time:"📍", cat:"sight", title:"孔亞", desc:"土耳其最古老的城市之一，12–13 世紀是塞爾柱的首都，也是傳統的宗教文化中心。詩人魯米在這裡創立了以旋轉舞祈禱聞名的蘇菲教團。", map:"Konya",
+          story:{ lead:"旋轉舞的故鄉",
+            body:["梅夫拉維教團是一個蘇菲派的修行教團，1273 年在孔亞創立，之後逐漸傳遍整個鄂圖曼帝國。他們最有名的就是旋轉舞儀式，稱為「Sema」。","舞者以左腳為軸，用右腳推動身體一圈一圈旋轉，眼睛睜開但不聚焦。伴奏有歌者、吹奈伊笛的樂手、定音鼓和鈸。過去舞者要在教團的修道院裡接受 1,001 天的閉關訓練，學習倫理、祈禱、音樂、詩歌和舞蹈。","1925 年土耳其推行世俗化，所有修道院都被關閉；1950 年代政府才重新允許公開演出。聯合國教科文組織在 2008 年把這項儀式列入人類無形文化遺產代表作名錄。"],
+            see:["這次行程表只寫經過孔亞，沒有列出入內參觀的景點，會不會停留以領隊說明為準","如果之後在別處看到旋轉舞表演：注意舞者是用左腳當軸心在轉"],
+            fact:"聯合國教科文組織提醒，現在很多旋轉舞是演給觀光客看的，內容經過縮短和簡化，和原本的宗教儀式不完全一樣。",
+            src:[UNESCO_SEMA] } },
         { k:"d5d", time:"🍽️", cat:"food", title:"午餐：鄂圖曼式鐵板料理佐 Pide 風味餐", desc:"四人一盤。" },
         { k:"d5e", time:"🚌", cat:"move", title:"孔亞 → 巴穆卡雷", desc:"約 406 公里、5 小時 40 分。", tags:["bus"] },
         { k:"d5f", time:"🍽️", cat:"food", title:"晚餐：飯店內", desc:"" },
@@ -554,7 +611,13 @@ const TRIP = {
       items:[
         { k:"d7a", time:"🛍️", cat:"shop", title:"皮衣工廠（入內參觀）", desc:"羊皮是這裡的特產，有專人解說和皮衣走秀。手冊提醒：購買前仔細檢查有無瑕疵、修改後尺寸合不合身，旅行社不提供退貨退費。" },
         { k:"d7b", time:"🚌", cat:"move", title:"庫沙達西 → 席林杰", desc:"約 43 公里、1 小時 10 分。", tags:["bus"] },
-        { k:"d7c", time:"📍", cat:"sight", title:"席林杰（下車參觀）", desc:"以 19 世紀農村民居聞名的小山村，整個村子就像露天博物館，以水果酒出名。", must:true, map:"Şirince" },
+        { k:"d7c", time:"📍", cat:"sight", title:"席林杰（下車參觀）", desc:"以 19 世紀農村民居聞名的小山村，整個村子就像露天博物館，以水果酒出名。", must:true, map:"Şirince",
+          story:{ lead:"海拔 350 公尺山坡上的小村子，被聯合國選為最佳旅遊鄉村",
+            body:["席林杰位在伊茲密爾省的塞爾丘克區，要沿著一條彎彎曲曲的山路上去，海拔約 350 公尺。2023 年它被聯合國世界旅遊組織選為「最佳旅遊鄉村」之一。","村裡的房子沿著山坡蓋，每一棟都盡量朝向風景和陽光。四周是果樹、橄欖園和葡萄園，村民到現在還在種田、放羊，用自家院子的水果做果醬和酒。","它最出名的是水果酒，幾乎當地種的每一種水果都拿來釀。很多石造老宅也改成了小旅館和餐廳。"],
+            see:["沿著山坡層層排列的老房子","窄巷裡的小攤：果醬、橄欖油、手工藝品","午餐附的那一杯水果酒，可以問問是哪種水果釀的"],
+            how:"村子的巷子是石板斜坡，慢慢走。買酒的話記得要放託運行李，今天下午就要搭國內線。",
+            fact:"村子裡的溪水幾百年來一直是村民的飲用水來源。",
+            src:[GOTURKIYE_SIRINCE] } },
         { k:"d7d", time:"🍽️", cat:"food", title:"午餐：席林杰小鎮風味餐＋1 杯水果酒", desc:"" },
         { k:"d7e", time:"🚌", cat:"move", title:"席林杰 → 伊茲密爾機場", desc:"約 68 公里、1 小時 10 分。", tags:["bus"] },
         { k:"d7f", time:"15:55", cat:"move", title:"TK2327 飛伊斯坦堡", desc:"17:20 抵達伊斯坦堡。", tags:["flight"] },
@@ -582,15 +645,36 @@ const TRIP = {
             how:"這是仍在使用的清真寺。女生請穿長褲或及膝洋裝、上衣不露肩；其他現場規定聽領隊說明。",
             src:[UNESCO_ISTANBUL] } },
         { k:"d8d", time:"🍽️", cat:"food", title:"午餐：中式料理八菜一湯", desc:"" },
-        { k:"d8e", time:"📍", cat:"sight", title:"地下水宮（入內參觀）", desc:"古羅馬地下蓄水池，三百多根大石柱撐起來，像一座地下宮殿。", must:true, map:"Basilica Cistern" },
-        { k:"d8f", time:"📍", cat:"sight", title:"舊城區：賽馬場、方尖碑、蛇柱（下車參觀）", desc:"古羅馬賽馬場遺址，現在是橢圓形廣場，中間有埃及方尖碑（狄奧多西方尖碑）、青銅蛇柱和君士坦丁堡紀念柱。", map:"Sultanahmet Square" },
+        { k:"d8e", time:"📍", cat:"sight", title:"地下水宮（入內參觀）", desc:"古羅馬地下蓄水池，三百多根大石柱撐起來，像一座地下宮殿。", must:true, map:"Basilica Cistern",
+          story:{ lead:"藏在伊斯坦堡地底下的「宮殿」，其實是一座蓄水池",
+            body:["地下水宮（Yerebatan Sarnıcı）建於 6 世紀，是東羅馬皇帝查士丁尼一世在位時蓋的，位置原本是一座會堂（basilica），所以英文叫 Basilica Cistern。","伊斯坦堡地底下有很多蓄水池，這是最大的一座。三百多根大理石柱撐起整個空間，在好幾個帝國的時代裡，它都是城市供水系統的重要一環。","現在遊客走在木棧道上，燈光打在水面，石柱的倒影輕輕晃動，水裡還有鯉魚游來游去。"],
+            see:["成排石柱和水面倒影","兩根以梅杜莎頭像當基座的石柱","水裡游動的鯉魚"],
+            how:"裡面光線昏暗、地面潮濕，走慢一點，注意腳下。",
+            fact:"這裡當過好萊塢電影的場景，包括一部 007 系列電影。",
+            src:[GOTURKIYE_CISTERN] } },
+        { k:"d8f", time:"📍", cat:"sight", title:"舊城區：賽馬場、方尖碑、蛇柱（下車參觀）", desc:"古羅馬賽馬場遺址，現在是橢圓形廣場，中間有埃及方尖碑（狄奧多西方尖碑）、青銅蛇柱和君士坦丁堡紀念柱。", map:"Sultanahmet Square",
+          story:{ lead:"現在是廣場，以前是君士坦丁堡最熱鬧的賽馬場",
+            body:["聯合國教科文組織在介紹伊斯坦堡歷史城區時，把「君士坦丁的古賽馬場」和 6 世紀的聖索菲亞並列為這座城市的傑作。","賽馬場本身的建築已經不在了，留下來的是一個長條形的廣場。行前手冊提到，廣場中間立著三件古物：埃及方尖碑（狄奧多西方尖碑）、青銅蛇柱和君士坦丁堡紀念柱。","站在這裡往兩邊看，一邊是藍色清真寺，一邊走幾步就是聖索菲亞。這一小塊地方，就是伊斯坦堡兩千年歷史疊在一起的中心。"],
+            see:["埃及方尖碑","青銅蛇柱","君士坦丁堡紀念柱","從廣場同時看到藍色清真寺和聖索菲亞"],
+            src:[UNESCO_ISTANBUL] } },
         { k:"d8g", time:"🍽️", cat:"food", title:"晚餐：博斯普魯斯海峽景觀餐廳", desc:"" },
       ], tip:"舊城區觀光客多、扒手也多：不要背後背包，改側背或腰包，不要當眾數鈔票。過馬路要特別小心，當地車子常搶快。" },
 
     { date:"2026-11-22", label:"遊船・返程", title:"Day 9・海峽遊船，然後回家", route:"伊斯坦堡 ✈ 桃園", move:"土耳其航空 TK124，約 10 小時 30 分", stay:"機上",
       items:[
-        { k:"d9a", time:"⛴️", cat:"sight", title:"博斯普魯斯海峽遊船", desc:"約 1 小時。海峽兩岸散落著蘇丹的夏宮、貴族別墅和富豪華宅。", must:true, map:"Bosphorus Istanbul" },
-        { k:"d9b", time:"🛍️", cat:"shop", title:"香料市集（下車參觀）", desc:"伊斯坦堡最有特色的傳統市場，香料、茶葉、甜點和堅果，適合買伴手禮。", map:"Spice Bazaar Istanbul" },
+        { k:"d9a", time:"⛴️", cat:"sight", title:"博斯普魯斯海峽遊船", desc:"約 1 小時。海峽兩岸散落著蘇丹的夏宮、貴族別墅和富豪華宅。", must:true, map:"Bosphorus Istanbul",
+          story:{ lead:"坐船看這座城市為什麼會成為帝國首都",
+            body:["伊斯坦堡的位置夾在巴爾幹和安那托利亞、黑海和地中海之間。聯合國教科文組織說，它的價值就在於歐洲和亞洲在這裡交會了許多世紀。","舊城所在的半島三面環水：北邊是天然港灣金角灣，東邊是博斯普魯斯海峽，南邊是馬爾馬拉海。行前手冊也說，這三面水域給了伊斯坦堡特殊的地理位置和歷史定位，其中又以博斯普魯斯海峽最重要。","從水上回頭看，圓頂和尖塔排成的天際線一覽無遺；海峽兩岸則是蘇丹的夏宮、貴族的別墅和富豪的宅邸。"],
+            see:["從水面看舊城區圓頂和尖塔排成的天際線","海峽兩岸的宮殿和別墅","一邊是歐洲、一邊是亞洲的兩岸"],
+            how:"船上風大，外套和圍巾帶著。聽從船上人員指示，照相時扶好。",
+            src:[UNESCO_ISTANBUL] } },
+        { k:"d9b", time:"🛍️", cat:"shop", title:"香料市集（下車參觀）", desc:"伊斯坦堡最有特色的傳統市場，香料、茶葉、甜點和堅果，適合買伴手禮。", map:"Spice Bazaar Istanbul",
+          story:{ lead:"賣了三百多年香料的室內市場",
+            body:["香料市集在艾米諾努區，就在新清真寺後面，是伊斯坦堡最古老的室內市集之一。據說拜占庭時期這裡就已經有市場。","現在的建築是 1660 年由圖爾汗蘇丹下令興建的。它最早叫「新市集」或「太后市集」，據說是用埃及收來的稅金蓋的，所以後來被稱為「埃及市集」（Mısır Çarşısı）。","市集以藥材香料店聞名，到現在還賣天然草藥、香料、花種子，還有堅果和各種食品。它經歷過兩次大火，最近一次由市政府整修是在 1940 到 1943 年。"],
+            see:["L 形的市集建築和它的六個門","堆成小山的香料、茶葉、土耳其軟糖和堅果","市集旁邊的新清真寺"],
+            how:"人多擁擠，包包背前面。買東西前先問清楚價格和單位；回台灣不能帶肉類製品和生鮮水果。",
+            fact:"市集的樓上以前設過法庭，讓商人在這裡解決糾紛。",
+            src:[VISIT_SPICE] } },
         { k:"d9c", time:"🍽️", cat:"food", title:"午間：中式料理八菜一湯", desc:"手冊上這一餐標示為「點心」。" },
         { k:"d9d", time:"17:15", cat:"move", title:"TK124 起飛回台灣", desc:"晚餐在機上。", tags:["flight"] },
       ], tip:"回台灣不能帶生鮮水果、肉類製品。酒類免稅 1 公升、捲菸 200 支；超過要走紅線檯申報。" },
@@ -600,35 +684,14 @@ const TRIP = {
         { k:"d10a", time:"08:45", cat:"move", title:"抵達桃園機場", desc:"台灣時間。早餐在機上。跟團員互道珍重，結束土耳其之旅。", tags:["flight"] },
       ], tip:"" },
   ],
-  todo: [
-    { k:"t1", t:"檢查護照：效期 6 個月以上、簽名欄已親簽", note:"帶已辦好簽證的那一本" },
-    { k:"t2", t:"加入本團 LINE 群組", note:"掃紙本手冊第 2 頁的 QR code" },
-    { k:"t3", t:"準備美金現鈔和小額零錢", note:"小費每人每日 12 美元；到當地再換里拉" },
-    { k:"t4", t:"打電話給信用卡公司報備出國、確認額度", note:"" },
-    { k:"t5", t:"保暖衣物：外套、帽子、手套、圍巾", note:"手冊寫冬季 -5～5 度，洋蔥式穿法" },
-    { k:"t6", t:"防水止滑、好走的鞋", note:"" },
-    { k:"t7", t:"進清真寺的衣服", note:"女生長褲或及膝洋裝、不露肩" },
-    { k:"t8", t:"轉接頭（雙圓孔、220V）和充電器", note:"確認電器支援 110–240V" },
-    { k:"t9", t:"牙刷、牙膏、拖鞋、潤髮乳", note:"飯店不提供" },
-    { k:"t10", t:"個人藥品：感冒、腸胃、暈車、過敏、止瀉", note:"慢性病藥帶一倍半的量，放原包裝" },
-    { k:"t11", t:"保溼和防曬：乳液、護唇膏、太陽眼鏡、防曬", note:"當地氣候乾燥" },
-    { k:"t12", t:"保溫瓶、隨身零食", note:"餐廳的水和飲料多半要另外付費" },
-    { k:"t13", t:"雨傘或雨衣", note:"" },
-    { k:"t14", t:"行動電源、鋰電池放隨身包", note:"不能託運" },
-    { k:"t15", t:"液體裝 100 毫升以內小瓶＋1 公升透明夾鏈袋", note:"隨身行李才需要" },
-    { k:"t16", t:"確認行李沒有檳榔、防狼噴霧、防風打火機", note:"" },
-    { k:"t17", t:"託運行李秤重：30 公斤以內", note:"手提 8 公斤以內" },
-    { k:"t18", t:"泳衣（想泡溫泉或洗土耳其浴再帶）", note:"選帶" },
-    { k:"t19", t:"出發前三天查天氣預報", note:"" },
-    { k:"t20", t:"向電信公司確認漫遊，或先買好網卡", note:"" },
-  ],
+  todo: [],   // 清單區塊已拿掉；要加回來就在這裡填項目
   stays: [
     { name:"THE G HOTELS – ISTANBUL", nights:"11/14（Day 1）", city:"伊斯坦堡", address:"Bağlar Mahallesi Mimar Sinan Caddesi No:35, Güneşli, Bağcılar, İstanbul, Türkiye", tel:"+90 212 919 40 00", map:"The G Hotels Istanbul Güneşli" },
-    { name:"RADISSON BLU CANKAYA", nights:"11/15（Day 2）", city:"安卡拉", address:"Isci Bloklari Mahallesi 1495. Cad. No:11, Cukurambar District, 06530 Cankaya, Ankara, Turkey", tel:"+90 312 203 9999", map:"Radisson Blu Hotel Ankara Çukurambar" },
-    { name:"YUNAK EVLERI CAVE", nights:"11/16–11/17（Day 3、4，連住兩晚）", city:"卡帕多奇亞", address:"Temenni, Balcı Sk., 50400 Ürgüp/Nevşehir, Türkiye", tel:"+90 384 341 69 20", map:"Yunak Evleri Cave Hotel Ürgüp", note:"洞穴飯店：依地形而建、房間大小不一，無法指定房型；只有暖氣。" },
-    { name:"PAM THERMAL", nights:"11/18（Day 5）", city:"巴穆卡雷（棉堡）", address:"Karahayıt, 120. Sağlık Sk No:5/1, 20190 Pamukkale/Denizli, Türkiye", tel:"+90 258 404 01 32", map:"Pam Thermal Hotel Karahayıt Pamukkale" },
-    { name:"ELITE WORLD KUSADASI", nights:"11/19（Day 6）", city:"庫沙達西", address:"Türkmen, Atatürk Blv. 3. Sk, 09400 Kuşadası/Aydın, Türkiye", tel:"+90 256 618 15 00", map:"Elite World Kuşadası" },
-    { name:"DoubleTree by Hilton Istanbul Topkapi", nights:"11/20–11/21（Day 7、8，連住兩晚）", city:"伊斯坦堡", address:"Orta, Anıt Sokağı No:1, 34040 Bayrampaşa/İstanbul, Türkiye", tel:"+90 212 942 27 00", map:"DoubleTree by Hilton Istanbul Topkapi" },
+    { name:"RADISSON BLU CANKAYA", nights:"11/15（Day 2）", city:"安卡拉", address:"Isci Bloklari Mahallesi 1495. Cad. No:11, Cukurambar District, 06530 Cankaya, Ankara, Turkey", tel:"+90 312 203 9999", web:"https://www.radissonhotels.com/en-us/hotels/radisson-blu-ankara-cankaya", map:"Radisson Blu Hotel Ankara Çukurambar" },
+    { name:"YUNAK EVLERI CAVE", nights:"11/16–11/17（Day 3、4，連住兩晚）", city:"卡帕多奇亞", address:"Temenni, Balcı Sk., 50400 Ürgüp/Nevşehir, Türkiye", tel:"+90 384 341 69 20", web:"https://www.yunak.com/", map:"Yunak Evleri Cave Hotel Ürgüp", note:"洞穴飯店：依地形而建、房間大小不一，無法指定房型；只有暖氣。" },
+    { name:"PAM THERMAL", nights:"11/18（Day 5）", city:"巴穆卡雷（棉堡）", address:"Karahayıt, 120. Sağlık Sk No:5/1, 20190 Pamukkale/Denizli, Türkiye", tel:"+90 258 404 01 32", web:"https://www.pamthermal.com/", map:"Pam Thermal Hotel Karahayıt Pamukkale" },
+    { name:"ELITE WORLD KUSADASI", nights:"11/19（Day 6）", city:"庫沙達西", address:"Türkmen, Atatürk Blv. 3. Sk, 09400 Kuşadası/Aydın, Türkiye", tel:"+90 256 618 15 00", web:"https://www.eliteworldhotels.com.tr/en/hotels/elite-world-kusadasi", map:"Elite World Kuşadası" },
+    { name:"DoubleTree by Hilton Istanbul Topkapi", nights:"11/20–11/21（Day 7、8，連住兩晚）", city:"伊斯坦堡", address:"Orta, Anıt Sokağı No:1, 34040 Bayrampaşa/İstanbul, Türkiye", tel:"+90 212 942 27 00", web:"https://www.hilton.com/en/hotels/isttodi-doubletree-istanbul-topkapi/", map:"DoubleTree by Hilton Istanbul Topkapi" },
   ],
   stayNote: "如遇不可抗拒情況，旅行社保有變更同等級飯店的權利，以領隊公布為準。飯店都是禁菸房，房內抽菸會被罰款。",
   sos: {
@@ -644,6 +707,15 @@ const TRIP = {
     hours: "服務時間：週一至週五 09:00–17:00",
     dial: "從土耳其打回台灣：00 ＋ 886 ＋ 區碼（去 0）＋ 電話號碼",
     url: "https://www.roc-taiwan.org/tr/",
+  },
+  clocks: [["🇹🇷 土耳其", "Europe/Istanbul"], ["🇹🇼 台灣", "Asia/Taipei"]],   // 首頁的即時時鐘
+  fx: {   // 首頁的匯率換算
+    title: "匯率換算",
+    cur: [["TWD","台幣"],["USD","美金"],["TRY","里拉"]],
+    perUSD: { USD: 1, TWD: 31.44, TRY: 45.03 },   // 備用匯率：行前手冊的參考值（1 美元 ≈ 45.03 里拉、台幣 100 元 ≈ 143.23 里拉）
+    fallbackNote: "目前用行前手冊的參考匯率",
+    live: "https://open.er-api.com/v6/latest/USD",   // 有網路時自動抓參考匯率；留空就只用備用匯率
+    start: ["USD", 100],
   },
   credit: { text:"用 trip-guide skill 製作", url:"https://github.com/Joanne9N/trip-guide-skill" },
 };
@@ -726,7 +798,7 @@ const dayDiff = (a, b) => Math.round((Date.parse(b) - Date.parse(a)) / 864e5);
 function renderNav(){
   const links = [["home","首頁"],["prep","準備"],["flights","航班"],["days","行程"],["list","清單"],["stay","住宿"]];
   document.getElementById("topnav").innerHTML = `<span class="brand">${esc(TRIP.short)}</span>` +
-    links.map(([id, n]) => `<a href="#${id}" data-id="${id}">${n}</a>`).join("");
+    links.filter(([id]) => id !== "list" || TRIP.todo?.length).map(([id, n]) => `<a href="#${id}" data-id="${id}">${n}</a>`).join("");
 }
 
 function renderHome(){
@@ -741,8 +813,75 @@ function renderHome(){
     <h1>${esc(TRIP.title)}</h1>
     <p class="sub">${esc(TRIP.dates)}</p>
     <div class="stats">${TRIP.stats.map(([b, s]) => `<div class="stat"><b>${esc(b)}</b><span>${esc(s)}</span></div>`).join("")}</div>
+    ${clocksHTML()}
+    ${fxHTML()}
     <div class="card"><div class="count">${count}</div><p class="intro">${esc(TRIP.intro)}</p></div>`;
+  tickClocks();
+  fxInit();
 }
+let fxRate = null, fxSrc = "";
+const fxDigits = { TWD: 0, USD: 2, TRY: 0 };
+function fxHTML(){
+  const f = TRIP.fx; if (!f) return "";
+  return `<div class="card fx"><h3>💱 ${esc(f.title)}</h3>
+    ${f.cur.map(([c, n]) => `<div class="fx-row"><label for="fx-${c}">${esc(n)} <small>${c}</small></label><input id="fx-${c}" data-fx="${c}" type="text" inputmode="decimal" autocomplete="off"></div>`).join("")}
+    <p class="fx-note" id="fx-note"></p></div>`;
+}
+function fxFill(from, val){
+  const f = TRIP.fx; if (!f || !fxRate) return;
+  const usd = val / fxRate[from];
+  f.cur.forEach(([c]) => {
+    const el = document.getElementById("fx-" + c); if (!el || c === from) return;
+    el.value = isFinite(usd) ? (usd * fxRate[c]).toLocaleString("en-US", { minimumFractionDigits: fxDigits[c] ?? 2, maximumFractionDigits: fxDigits[c] ?? 2 }) : "";
+  });
+}
+function fxNote(){
+  const el = document.getElementById("fx-note"); if (!el || !fxRate) return;
+  el.textContent = `1 美元 ≈ ${fxRate.TWD.toFixed(2)} 台幣 ≈ ${fxRate.TRY.toFixed(2)} 里拉・${fxSrc}。僅供參考，實際以當地換匯與刷卡匯率為準。`;
+}
+function fxUse(rates, src){
+  const f = TRIP.fx;
+  if (!f.cur.every(([c]) => typeof rates?.[c] === "number" && rates[c] > 0)) return false;
+  fxRate = rates; fxSrc = src; fxNote();
+  const cur = document.querySelector("[data-fx].last") || document.getElementById("fx-" + f.start[0]);
+  if (cur) fxFill(cur.dataset.fx, parseFloat(cur.value.replace(/,/g, "")));
+  return true;
+}
+function fxInit(){
+  const f = TRIP.fx; if (!f) return;
+  const first = document.getElementById("fx-" + f.start[0]);
+  if (first) { first.value = String(f.start[1]); first.classList.add("last"); }
+  const saved = store.get("fx", null);
+  if (!(saved && fxUse(saved.rates, "參考匯率更新於 " + saved.day))) fxUse(f.perUSD, f.fallbackNote);
+  if (!f.live || !window.fetch) return;
+  fetch(f.live).then(r => r.json()).then(j => {
+    if (j?.result !== "success") return;
+    const rates = { USD: 1, TWD: j.rates?.TWD, TRY: j.rates?.TRY };
+    const day = new Date((j.time_last_update_unix || Date.now() / 1000) * 1000).toLocaleDateString("zh-TW", { month: "numeric", day: "numeric" });
+    if (fxUse(rates, "參考匯率更新於 " + day)) store.set("fx", { rates, day });
+  }).catch(() => {});
+}
+document.addEventListener("input", e => {
+  const c = e.target.dataset?.fx; if (!c) return;
+  document.querySelectorAll("[data-fx]").forEach(x => x.classList.toggle("last", x === e.target));
+  fxFill(c, parseFloat(e.target.value.replace(/,/g, "")));
+});
+function clocksHTML(){
+  if (!TRIP.clocks?.length) return "";
+  return `<div class="clocks">${TRIP.clocks.map(([n], i) => `<div class="card clock"><span>${esc(n)}</span><b id="clock-t${i}">--:--</b><span id="clock-d${i}">&nbsp;</span></div>`).join("")}</div>`;
+}
+function tickClocks(){
+  (TRIP.clocks || []).forEach(([, tz], i) => {
+    const t = document.getElementById("clock-t" + i), d = document.getElementById("clock-d" + i);
+    if (!t || !d) return;
+    try {
+      const now = new Date();
+      t.textContent = new Intl.DateTimeFormat("en-GB", { timeZone: tz, hour: "2-digit", minute: "2-digit", hourCycle: "h23" }).format(now);
+      d.textContent = new Intl.DateTimeFormat("zh-TW", { timeZone: tz, month: "numeric", day: "numeric", weekday: "short" }).format(now);
+    } catch(e){ t.textContent = "--:--"; }
+  });
+}
+setInterval(tickClocks, 5000);
 
 function renderPrep(){
   const p = TRIP.prep;
@@ -854,6 +993,7 @@ document.addEventListener("click", e => {
 });
 
 function renderList(){
+  if (!TRIP.todo?.length) { document.getElementById("list")?.remove(); return; }
   const done = store.get("todo", []);
   const n = TRIP.todo.filter(t => done.includes(t.k)).length;
   document.getElementById("list").innerHTML = `
@@ -889,7 +1029,7 @@ function renderStay(){
       <h3>${esc(s.name)}</h3>
       <dl class="kv">${s.city ? `<dt>城市</dt><dd>${esc(s.city)}</dd>` : ""}<dt>日期</dt><dd>${esc(s.nights)}</dd>${s.checkin ? `<dt>入住</dt><dd>${esc(s.checkin)} 之後</dd>` : ""}${s.checkout ? `<dt>退房</dt><dd>${esc(s.checkout)} 之前</dd>` : ""}<dt>地址</dt><dd class="addr">${esc(s.address)}</dd>${s.tel ? `<dt>電話</dt><dd>${esc(s.tel)}</dd>` : ""}</dl>
       ${s.note ? `<p class="muted">${esc(s.note)}</p>` : ""}
-      <div class="btns"><a class="btn main" href="${mapUrl(s.map || s.address)}" target="_blank" rel="noopener">📍 開地圖</a>${s.tel ? `<a class="btn" href="tel:${esc(s.tel.replace(/[^+\d]/g, ""))}">📞 打給飯店</a>` : ""}</div>
+      <div class="btns"><a class="btn main" href="${mapUrl(s.map || s.address)}" target="_blank" rel="noopener">📍 開地圖</a>${s.tel ? `<a class="btn" href="tel:${esc(s.tel.replace(/[^+\d]/g, ""))}">📞 打給飯店</a>` : ""}${s.web ? `<a class="btn" href="${esc(s.web)}" target="_blank" rel="noopener">🌐 官方網站 ↗</a>` : `<a class="btn" href="https://www.google.com/search?q=${encodeURIComponent(s.name)}" target="_blank" rel="noopener">🔎 Google 搜尋 ↗</a>`}</div>
     </div>`).join("") + (TRIP.stayNote ? `<p class="muted">${esc(TRIP.stayNote)}</p>` : "") + sosHTML();
 }
 
